@@ -11,7 +11,7 @@ function TodoList() {
     } //dismiss empty input and more than 2 spaces between words
     const newTodos = [todo, ...todos]; //the current todo and all the previous ones
     setTodos(newTodos);
-    console.log(newTodos);
+    console.log(newTodos); //for debugging
   };
 
   const updateTodo = (newId, newValue) => {
@@ -23,8 +23,7 @@ function TodoList() {
       prev //previous state
     ) => prev.map((item) => (item.id === newId ? newValue : item))); //newValue & item is a whole object ?
   };
-  /*TODO: how does React evaluate newId ?
-Hint:
+  /*TODO: figure out WHY these things happen:
 - Debugging with console.log after adding new todo:
 if new value is exactly the same as the previous one, id changed
 if new value passed the regex condition, id changed 

@@ -12,14 +12,15 @@ function Todo({ todos, completeTodo, removeTodo, updateTodo }) {
 
   const submitUpdate = (value) => {
     updateTodo(edit.id, value);
-    setEdit({ id: null, value: "" });
+    setEdit({ id: null, value: "" }); //trigger re-rendering (lowkey setState) returns to main form and re-initiate {edit} to prepare for next update
   };
 
   if (edit.id) {
-    return <TodoForm edit={edit} onSubmit={submitUpdate} />;
+    //after a re-rendering triggered by setEdit, now the {edit} has been assigned with the id & value from THAT object that you're editing
+    return <TodoForm onSubmit={submitUpdate} />;
   }
 
-  return todos.map((todo, index) => (
+  return todos.map((todo) => (
     <div
       className={todo.isComplete ? "todo-row complete" : "todo-row"}
       key={todo.id}
@@ -33,7 +34,7 @@ function Todo({ todos, completeTodo, removeTodo, updateTodo }) {
           className="delete-icon"
         />
         <TiEdit
-          onClick={() => setEdit({ id: todo.id, value: todo.text })}
+          onClick={() => setEdit({ id: todo.id, value: todo.text })} //this right here is the "THAT" object mentioned above
           className="edit-icon"
         />
       </div>

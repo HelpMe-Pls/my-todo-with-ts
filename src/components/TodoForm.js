@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 
-function TodoForm(props) {
-  const [input, setInput] = useState(props.edit ? props.edit.value : "");
+function TodoForm({ edit, onSubmit }) {
+  const [input, setInput] = useState(edit ? edit.value : "");
   /* edit is the initial state declared in Todo.js, props.edit.value is the current value we're editing
   else empty string would activate the placeholder */
 
@@ -15,7 +15,7 @@ function TodoForm(props) {
   };
 
   const handleSubmit = (e) => {
-    props.onSubmit({
+    onSubmit({
       id: Math.floor(Math.random() * 999999),
       text: input, //which is the latest input right before submit
     });
@@ -24,7 +24,7 @@ function TodoForm(props) {
   };
   return (
     <form className="todo-form" onSubmit={handleSubmit}>
-      {props.edit ? (
+      {edit ? ( //render edit form or main form
         <>
           <input
             className="todo-input edit"
