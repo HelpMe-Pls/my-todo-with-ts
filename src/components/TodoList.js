@@ -23,7 +23,7 @@ function TodoList() {
       prev //previous state, mapping every object {item} from that
     ) => prev.map((item) => (item.id === editId ? newValue : item))); // else return {item} means all the other todos will remain the same, {newValue} (new id & new text) is returned for the current editing object
   };
-  /*TODO: figure out WHY these things happen:
+  /*TODO: 
 - Debugging with console.log after adding new todo:
 if new value passed the regex condition, id changed (maybe regex only reformats updated output ?)
 */

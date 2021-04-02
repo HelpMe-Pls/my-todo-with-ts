@@ -16,7 +16,7 @@ function TodoForm({ edit, onSubmit }) {
 
   const handleSubmit = (e) => {
     onSubmit({
-      id: Math.floor(Math.random() * 999999),
+      id: Math.floor(Math.random() * 999999), //any better way to generate IDs ?
       text: input, //which is the latest input right before submit
     });
 
