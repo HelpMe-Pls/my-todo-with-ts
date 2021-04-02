@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 
 function TodoForm({ edit, onSubmit }) {
   const [input, setInput] = useState(edit ? edit.value : "");
-  /* edit is the initial state declared in Todo.js, props.edit.value is the current value we're editing
+  /* edit is the initial state declared in Todo.js, edit.value is the current value we're editing
   else empty string would activate the placeholder */
 
   const inputFocus = useRef(null);

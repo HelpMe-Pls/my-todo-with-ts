@@ -16,8 +16,8 @@ function Todo({ todos, completeTodo, removeTodo, updateTodo }) {
   };
 
   if (edit.id) {
-    //after a re-rendering triggered by setEdit, now the {edit} has been assigned with the id & value from THAT object that you're editing
-    return <TodoForm onSubmit={submitUpdate} />;
+    //after a re-rendering triggered by setEdit (from TiEdit component), now the {edit} has been assigned with the id & value from THAT object that you're editing
+    return <TodoForm edit={edit} onSubmit={submitUpdate} />; //edit prop passed in TodoForm for conditional rendering
   }
 
   return todos.map((todo) => (
